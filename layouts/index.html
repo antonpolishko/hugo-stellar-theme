@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+{{ "<!--" | safeHTML}}
+  Stellar by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+{{ "-->" | safeHTML }}
+<html>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+
+    <!-- Wrapper -->
+      <div id="wrapper">
+          {{ .Data.Posts }}
+
+        <!-- Header -->
+          {{ partial "header.html" . }}
+
+        <!-- Nav -->
+          {{ partial "navigation.html" . }}
+
+        <!-- Main -->
+          <div id="main">
+
+            <!-- Introduction -->
+              {{ partial "intro.html" . }}
+
+            <!-- Sections -->
+              {{ $list := .Site.Params.section }}
+              {{ range $index, $section := $list }}
+                <section id="{{$section.id}}" class="main special">
+                  <header class="major">
+                    <h2>{{ $section.title }}</h2>
+                    <p>{{ $section.description | markdownify }}</p>
+                  </header>
+                  
+                  <!-- section features -->
+                  {{ if $section.features.enable }}
+                    <ul class="features">
+                      {{ range $count, $feature := $section.feature }}
+                      <li>
+                        <span class="icon major style{{ add $count 1 }} {{ $feature.icon }}"></span>
+                        <h3>{{ $feature.title }} </h3>
+                        <p>{{ $feature.description | markdownify }}</p>
+                      </li>
+                      {{end}}
+                    </ul>
+                  {{ end }}
+
+                  <!-- section statistics -->
+                  {{ if $section.statistics.enable }}
+                    <ul class="statistics">
+                      {{ range $count, $stat := $section.statistic }}
+                        <li class="style{{add $count 1}}">
+                          <span class="icon {{ $stat.icon }} "></span>
+                          <strong>{{ $stat.value }}</strong> {{ $stat.text }}
+                        </li>
+                      {{ end }}
+                    </ul>
+                  {{ end }}
+
+                  <!-- section content -->
+                  {{ if $section.content.enable }}
+                    <p class="content">{{ $section.content.text }}</p>
+                  {{ end }}
+                  
+                  <!-- section footer/cta -->
+                  {{ if $section.footer.enable }}
+                    <footer class="major">
+                      <ul class="actions">
+                        {{range $button := $section.footer.action }}
+                          <li>
+                            <a href="{{ $button.buttonUrl }}" class="button {{ $button.customClass }}">{{ $button.buttontext }}</a>
+                          </li>
+                        {{ end }}
+                      </ul>
+                    </footer>
+                  {{end}}
+                </section>
+              {{ end }}
+          
+          </div>
+
+        <!-- Footer -->
+          {{ partial "footer.html" . }}
+
+      </div>
+
+    <!-- Scripts -->
+      {{ partial "scripts.html" . }}
+      {{- partial "footer_custom.html" . }}
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<section id="intro" class="main">
+  <div class="spotlight">
+    <div class="content">
+      <header class="major">
+        <h2>{{ .Site.Params.intro.title }}</h2>
+      </header>
+      <p>{{ .Site.Params.intro.description | markdownify }}</p>
+      <ul class="actions">
+        {{range $button := .Site.Params.intro.action }}
+          <li>
+            <a href="{{ $button.href }}" class="button {{ $button.customClass }}">{{ $button.buttontext }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ if .Site.Params.intro.image }}
+      <span class="image"><img src="{{ .Site.Params.intro.image }}" alt="" /></span>
+    {{ end }}
+  </div>
+</section>

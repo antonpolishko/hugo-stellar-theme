@@ -1,0 +1,7 @@
+<nav id="nav">
+  <ul>
+    {{ range $nav := .Site.Params.navigation }}
+      <li><a href="{{ $nav.href }}" class="active">{{ $nav.name | markdownify}}</a></li>
+    {{ end }}
+  </ul>
+</nav>

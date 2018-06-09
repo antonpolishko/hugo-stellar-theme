@@ -1,0 +1,38 @@
+<footer id="footer">
+  <section>
+    <h2>{{ .Site.Params.footer.title }}</h2>
+    <p>{{ .Site.Params.footer.description | markdownify }}</p>
+    <ul class="actions">
+      {{range $button := .Site.Params.footer.action }}
+        <li>
+          <a href="{{ $button.href }}" class="button {{ $button.customClass }}">{{ $button.buttontext }}</a>
+        </li>
+      {{ end }}
+    </ul>
+
+  </section>
+  <section>
+    <h2>{{ .Site.Params.footer.second_title }}</h2>
+    <dl class="alt">
+      <dt>Address</dt>
+      <dd>{{.Site.Params.footer.address | markdownify }}</dd>
+      <dt>Phone</dt>
+      <dd>{{.Site.Params.footer.phone | markdownify }}</dd>
+      <dt>Email</dt>
+      <dd><a href="mailto:{{.Site.Params.footer.email}}">{{.Site.Params.footer.email | markdownify }}</a></dd>
+    </dl>
+  
+    {{ if .Site.Params.footer.social_list.enable }}
+      <ul class="icons">
+        {{ range .Site.Params.footer.social }}
+          <li><a href="{{ .link }}" class="icon alt {{ .icon }}"><span class="label">{{ .title }}</span></a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </section>
+  
+  {{ if .Site.Params.footer.copyright.enable }}
+    <p class="copyright">{{.Site.Params.footer.copyright.text | markdownify }}</a>.</p>      
+  {{ end }}
+
+</footer>
