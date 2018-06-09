@@ -7,6 +7,7 @@ This theme provides the following features
 * Google Analytics
 * responsive
 
+![Hugo Stellar Theme screenshot](https://raw.githubusercontent.com/antonpolishko/hugo-stellar-theme/master/images/screenshot.png)
 ## Installation
 
 Inside the folder of your Hugo site run:
