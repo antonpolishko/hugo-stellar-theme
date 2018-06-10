@@ -18,5 +18,5 @@ min_version = "0.38"
 [original]
   # Creator of the original Bootstrap theme
   name = "@ajlkn"
-  homepage = "https://twitter.com/ajlkn""
+  homepage = "https://twitter.com/ajlkn"
   repo = "https://html5up.net/stellar"
