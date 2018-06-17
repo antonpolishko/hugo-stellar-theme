@@ -14,10 +14,14 @@
   <section>
     <h2>{{ .Site.Params.footer.second_title }}</h2>
     <dl class="alt">
-      <dt>Address</dt>
-      <dd>{{.Site.Params.footer.address | markdownify }}</dd>
-      <dt>Phone</dt>
-      <dd>{{.Site.Params.footer.phone | markdownify }}</dd>
+      {{ with .Site.Params.footer.address }}
+        <dt>Address</dt>
+        <dd>{{ . | markdownify }}</dd>
+      {{ end }}
+      {{ with .Site.Params.footer.phone }}
+        <dt>Phone</dt>
+        <dd>{{ . | markdownify }}</dd>
+      {{ end }}
       <dt>Email</dt>
       <dd><a href="mailto:{{.Site.Params.footer.email}}">{{.Site.Params.footer.email | markdownify }}</a></dd>
     </dl>
