@@ -42,7 +42,7 @@ googleAnalytics = "" #put your google-analytics ID here
     title = "Magna veroeros"
     description = ""
     
-    # the picture is storead at static/images/
+    # the picture is stored at static/images/
     [params.section.features]
       enable = true
       [[params.section.feature]]
