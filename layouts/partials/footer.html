@@ -1,4 +1,5 @@
 <footer id="footer">
+  {{ if .Site.Params.footer.enable }}
   <section>
     <h2>{{ .Site.Params.footer.title }}</h2>
     <p>{{ .Site.Params.footer.description | markdownify }}</p>
@@ -34,6 +35,7 @@
       </ul>
     {{ end }}
   </section>
+  {{ end }}
   
   {{ if .Site.Params.footer.copyright.enable }}
     <p class="copyright">{{.Site.Params.footer.copyright.text | markdownify }}.</p>      
